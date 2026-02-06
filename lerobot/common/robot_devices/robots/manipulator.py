@@ -245,7 +245,7 @@ class ManipulatorRobot:
             available_arms.append(arm_id)
         return available_arms
 
-    def connect(self):
+    def connect(self, baudrate):
         if self.is_connected:
             raise RobotDeviceAlreadyConnectedError(
                 "ManipulatorRobot is already connected. Do not run `robot.connect()` twice."
@@ -259,10 +259,10 @@ class ManipulatorRobot:
         # Connect the arms
         for name in self.follower_arms:
             print(f"Connecting {name} follower arm.")
-            self.follower_arms[name].connect()
+            self.follower_arms[name].connect(baudrate)
         for name in self.leader_arms:
             print(f"Connecting {name} leader arm.")
-            self.leader_arms[name].connect()
+            self.leader_arms[name].connect(baudrate)
 
         if self.robot_type in ["koch", "koch_bimanual", "aloha"]:
             from lerobot.common.robot_devices.motors.dynamixel import TorqueMode
