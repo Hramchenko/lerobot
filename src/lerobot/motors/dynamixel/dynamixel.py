@@ -77,6 +77,7 @@ elif MY_DXL == 'XL320':
     DXL_MAXIMUM_POSITION_VALUE  = 1023      # Refer to the CCW Angle Limit of product eManual
     BAUDRATE                    = 1000000   # Default Baudrate of XL-320 is 1Mbps
 
+DEFAULT_BAUDRATE = BAUDRATE
 
 NORMALIZED_DATA = ["Goal_Position", "Present_Position"]
 
